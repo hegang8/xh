@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				vertical-align: top;
+			}
+			#bnt1{
+				margin-left:100px ;
+			}
+			#p{
+				margin-left:50px ;
+				/*font-size: 12px;*/
+			}
+			#div1{
+				width: 307px;
+				height: 307px;
+				border: 7px solid #c6c6c6;
+				margin-left: 30px;
+				position: relative;
+			}
+			#div2{
+				width: 307px;
+				height: 22px;
+				font:12px/22px "微软雅黑";
+				color:#fff;
+				background: rgba(0,0,0,.4);
+				text-align: center;
+				position: absolute;
+				left: 0px;
+				top:0px;
+			}
+			#div3{
+				width: 307px;
+				height: 24px;
+				font:12px/24px "微软雅黑";
+				color:#fff;
+				background:rgba(0,0,0,.4);
+				text-align: center;
+				position: absolute;
+				left:0;
+				bottom:0;
+			}
+			#img{
+				width: 307px;
+				height: 307px;
+			}
+			#bnt3{
+				position: absolute;
+				left: 10px;
+				top:120px;
+			}
+			#bnt4{
+				position: absolute;
+				left: 270px;
+				top:120px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="bnt1">循环切换</button>
+		<button id="bnt2">顺序切换</button>
+		<p id="p">图片可从最后一张转到第一张循环切换</p>
+		<div id="div1">
+			<div id="div2">1/4</div>
+			<img id="img" src="img/1.jpg" alt="" />
+			<div id="div3">文字一</div>
+			<button id="bnt3">&lt;</button>
+			<button id="bnt4">></button>
+		</div>
+		<script>
+			var n = 1;
+			var arr = ['文字一','文字二' ,'文字三', '文字四'];
+			bnt3.onclick = function () {
+					n--;
+					console.log(n)
+					if(n==0){
+						n=4;
+					}
+					img.src = "img/"+n+".jpg";
+					div2.innerHTML = n+"/4";
+					div3.innerHTML =arr[n-1]
+				}
+				bnt4.onclick = function () {
+					n++;
+					console.log(n)
+					if(n==5){
+						n=1;
+					}
+					img.src = "img/"+n+".jpg";
+					div2.innerHTML = n+"/4";
+					div3.innerHTML =arr[n-1]
+				}
+			bnt2.onclick = function () {
+				p.innerHTML = "第一张切换图片只能到最后一张或只能到";
+				bnt3.onclick = function () {
+					n--;
+					console.log(n)
+					if(n==0){
+						n=1;
+						alert('已经是最后一张了，不能再往前了~~')
+					}
+					img.src = "img/"+n+".jpg";
+					div2.innerHTML = n+"/4";
+					div3.innerHTML =arr[n-1]
+				}
+				bnt4.onclick = function () {
+					n++;
+					console.log(n)
+					if(n==5){
+						n=4
+						alert('已经是最后一张了，不能再往前了~~')
+					}
+					img.src = "img/"+n+".jpg";
+					div2.innerHTML = n+"/4";
+					div3.innerHTML =arr[n-1]
+				}
+			
+			}
+			bnt1.onclick = function () {
+				p.innerHTML = "图片可从最后一张转到第一张循环切换";
+				bnt3.onclick = function () {
+					n--;
+					console.log(n)
+					if(n==0){
+						n=4;
+					}
+					img.src = "img/"+n+".jpg";
+					div2.innerHTML = n+"/4";
+					div3.innerHTML =arr[n-1]
+				}
+				bnt4.onclick = function () {
+					n++;
+					console.log(n)
+					if(n==5){
+						n=1;
+					}
+					img.src = "img/"+n+".jpg";
+					div2.innerHTML = n+"/4";
+					div3.innerHTML =arr[n-1]
+				}
+			}
+		</script>
+	</body>
+</html>
